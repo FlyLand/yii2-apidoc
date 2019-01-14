@@ -1,14 +1,19 @@
 {
-    "name": "landrain/yii2-apidoc",
-    "description": "yii2 api doc by php exlanatory note",
-    "type": "project",
-    "require": {
-        "yiisoft/yii2": "2.0.13"
-    },
-    "authors": [
-        {
-            "name": "landrain",
-            "email": "zk_land@163.com"
-        }
-    ]
+  "name": "landrain/yii2-apidoc",
+  "description": "yii2 api doc by php exlanatory note",
+  "type": "project",
+  "require": {
+    "yiisoft/yii2": "2.0.13"
+  },
+  "authors": [
+    {
+      "name": "landrain",
+      "email": "zk_land@163.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "landrain\\": "*"
+    }
+  }
 }
