@@ -5,7 +5,7 @@
  * Date: 2015/5/25
  * Time: 16:35
  */
-namespace app\components\jid\assets;
+namespace landrain\src\assets;
 
 class JidAsset extends \yii\web\AssetBundle
 {

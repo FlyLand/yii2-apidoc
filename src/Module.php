@@ -1,7 +1,6 @@
 <?php
-namespace app\components\jid;
-use app\components\jid\models\User;
-use yii\helpers\VarDumper;
+namespace land\src;
+use landrain\src\models\User;
 
 class Module extends \yii\base\Module
 {
@@ -72,7 +71,7 @@ class Module extends \yii\base\Module
 			),
 			'user'=>array(
                 'class'=>'yii\web\User',
-				'identityClass'=>'app\components\jid\models\User',
+				'identityClass'=>'landrain\src\models\User',
 				'loginUrl'=>\Yii::$app->urlManager->createUrl($this->id.'/default/login'),
 			),
 		), false);

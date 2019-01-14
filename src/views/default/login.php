@@ -58,8 +58,6 @@ use yii\bootstrap\ActiveForm;
 ]); ?>
 <h2 class="form-signin-heading">请登录</h2>
 <?php echo $form->field($model, 'password')->passwordInput(); ?>
-<!--<h2 class="form-signin-heading">输入版本号</h2>-->
-<?php //$model->version = \app\components\jid\models\DebugMockApiConfig::$defaultApiVersion; echo $form->field($model, 'version')->dropDownList(\app\components\jid\models\DebugMockApiConfig::getAllVersion()) ?>
 <?php echo Html::submitButton('登录', ['class' => 'btn btn-lg btn-primary btn-block']); ?>
 
 <?php ActiveForm::end(); ?>

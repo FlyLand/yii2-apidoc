@@ -1,7 +1,8 @@
 <?php
 
-namespace app\components\jid\controllers;
+namespace landrain\src\controllers;
 
+use landrain\src\models\LoginForm;
 use \yii;
 
 header('Content-type:text/html;charset=utf-8');
@@ -33,7 +34,7 @@ class DefaultController extends \yii\web\Controller
      */
     public function actionLogin()
     {
-        $model = new \app\components\jid\models\LoginForm();
+        $model = new LoginForm();
 
         // collect user input data
         if (isset($_POST['LoginForm'])) {

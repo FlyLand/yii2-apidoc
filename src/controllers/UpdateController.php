@@ -6,7 +6,7 @@
  * Time: 10:16
  */
 
-namespace app\components\jid\controllers;
+namespace landrain\src\controllers;
 
 use yii\web\Controller;
 use Yii;

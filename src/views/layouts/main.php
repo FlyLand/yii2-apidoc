@@ -1,4 +1,6 @@
 <?php
+
+use landrain\src\assets\JidAsset;
 use \yii\helpers\Html;
 
 $this->beginPage(); ?>
@@ -10,7 +12,7 @@ $this->beginPage(); ?>
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="" name="description">
     <meta content="" name="author">
-    <?php \app\components\jid\assets\JidAsset::register($this); ?>
+    <?php JidAsset::register($this); ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>

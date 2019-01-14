@@ -1,5 +1,5 @@
 <?php
-namespace app\components\jid\models;
+namespace landrain\src\models;
 use Yii;
 /**
  * LoginForm is the model behind the login form.
