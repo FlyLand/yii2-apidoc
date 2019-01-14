@@ -1,5 +1,5 @@
 <?php
-namespace land\src;
+namespace landrain;
 use landrain\models\User;
 
 class Module extends \yii\base\Module
