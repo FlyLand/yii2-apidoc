@@ -1,0 +1,31 @@
+{
+  "name" : "yii2-apidoc",
+  "description": "YII2 api doc by explanatory note",
+  "keywords": [
+    "yii2",
+    "api",
+    "doc",
+    "document"
+  ],
+  "authors": [
+    {
+      "name": "landrain",
+      "email": "zk_land@163.com",
+      "homepage": "www.coderhotel.cn",
+      "type": "project"
+    }
+  ],
+  "require": {
+    "php": ">=7.1.0",
+    "yiisoft/yii2": "^2.0.13"
+  },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/FlyLand/yii2-apidoc.git"
+    }
+  ],
+  "config":{
+    "secure-http": false
+  }
+}
