@@ -62,6 +62,11 @@ class DefaultController extends \yii\web\Controller
     public function actionIndex($parent = '', $module = 'user', $controller = '', $action = '')
     {
         $modules = $this->getReflectionModules($parent);
+
+        if(empty($modules)){
+            throw new \yii\base\Exception(sprintf('未检测到模块'));
+        }
+
         if ($module == 'user' && !empty($modules) && empty($modules[$module])) $module = key($modules);
         if (empty($modules[$module])) throw new \yii\base\Exception(sprintf('未检测到模块[%s]', $module));
 
@@ -176,7 +181,9 @@ class DefaultController extends \yii\web\Controller
     {
         $modules = [];
 
-        $dirs = scandir(Yii::getAlias('@app/modules' . ($parent == '' ? '' : '/' . $parent . '/modules')));
+        $dir = \Yii::getAlias('@app/modules' . ($parent == '' ? '' : '/' . $parent . '/modules'));
+        if(!is_dir($dir)) return false;
+        $dirs = scandir($dir);
 
         foreach ($dirs as $d) {
             if (preg_match('/^\..*/', $d)) continue;

@@ -83,7 +83,7 @@ class Module extends \yii\base\Module
     public function getAssetsUrl()
     {
         if($this->_assetsUrl===null)
-            $this->_assetsUrl=\Yii::$app->getAssetManager()->publish(\Yii::getAlias('@app/components/jid/assets'))[1];
+            $this->_assetsUrl=\Yii::$app->getAssetManager()->publish(\Yii::getAlias('@vendor/landrain/yii2-apidoc/src/assets'))[1];
         return $this->_assetsUrl;
     }
 

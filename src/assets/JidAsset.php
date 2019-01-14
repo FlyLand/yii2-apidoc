@@ -9,7 +9,7 @@ namespace landrain\assets;
 
 class JidAsset extends \yii\web\AssetBundle
 {
-    public $sourcePath = '@app/components/jid/assets';
+    public $sourcePath = '@vendor/landrain/yii2-apidoc/src/assets';
     public $css = [
         'bootstrap-3.2.0/dist/css/bootstrap.min.css',
         'jsonFormater/jsonFormater.css',
