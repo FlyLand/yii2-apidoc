@@ -1,34 +1,43 @@
 ## 项目描述
     jid是一个类似gii-module的一个拓展模块，主要为了接口端调试和API文档编写
 ## 安装
-在YII2项目路径/components/下git clone http://gitlab.jhongnet.com:8888/zhangke/jid.git ,
-或下载项目后直接copy到YII2项目路径/components/下。
+composer require landrain/yii2-apidoc:master-dev
 
 ## 访问
-直接访问项目地址根目录即可。登录默认密码：jiahong
+直接访问项目地址根目录即可。登录默认密码：123456
+
+## 准备
+1、请确保yii2开启了url美化功能，
+``` php
+'urlManager' => [
+    'enablePrettyUrl' => true,
+    'showScriptName' => false,
+    'rules' => [
+    ],
+],
+```
+2、本项目是以module接口开发为基础，请确定项目下有modules模块
 
 ## 项目配置：
 将下方配置引入入口文件web/index-dev.php或web/index-test.php( 正式环境不要引入）：
 ``` php
 $config['modules']['jid'] = [
-    'class'=>'app\components\jid\Module',
+    'class'=>'landrain\Module',
     'name'=>'接口调试系统',
-    'password'=>'jh',
+    'password'=>'123456',
     'ipFilters'=>['*','::1'],
     'loginConfig'=>[
         'loginUrl' => '/sail/seller/login',
         'fieldMapping'=>[
             'account'=>'domain',
-            'type'   => 'type',
             'password'=>'password',
-            'platform'=>'platform',
-            'email' => 'seller_email'
         ],
-        'c_identity'=>'jidinvoke',
-        'passwordHashUrl'=>'',
     ],
-    'signUrl'=>'/jid/default/signature',
-    'xhprofUrl' => 'http://192.168.1.254:8888/xhprof_html/index.php',
+    'subOfClasses' => [], //需要继承的classes
+    'dropdownList' => [
+    "android下载" => "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1547463466873&di=3e5a65b07a4dddf84fce5f421f0b64ca&imgtype=0&src=http%3A%2F%2Fy3.ifengimg.com%2Fnews_spider%2Fdci_2013%2F09%2Fb85234c4801f8b2d7771353867a7a0f8.jpg"
+    ], //右上角下拉image
+    'xhprofUrl' => 'http://192.168.1.254:8888/xhprof_html/index.php', //xhprofUrl链接
 ];
 
 $config['defaultRoute']  = 'jid';

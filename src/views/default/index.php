@@ -88,12 +88,12 @@ $this->title = $this->context->module->name;
 
                     <?php
                     if (!empty($this->context->module->dropdownList)) {
-                        foreach ($this->context->module->dropdownList as $item) { ?>
+                        foreach ($this->context->module->dropdownList as $name=>$src) { ?>
                             <li id="" class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id=""><?= $item['name'] ?>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id=""><?= $name ?>
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><img src="<?= $item['src']; ?>"/></li>
+                                    <li><img src="<?= $src; ?>"/></li>
                                     <li class="divider"></li>
                                 </ul>
                             </li>
