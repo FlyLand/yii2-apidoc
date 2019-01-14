@@ -116,4 +116,4 @@ PHP Class Doc Comment
 3、配置action的注释
 
 测试项目源码地址 [源码](https://github.com/FlyLand/yii2-apidoc-basic-test)
-测试项目访问地址 [访问地址](http://api.storecardhome.cn)
+测试项目访问地址 [访问地址](http://api.storecardhome.cn) 默认密码：123456
