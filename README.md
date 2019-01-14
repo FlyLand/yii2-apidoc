@@ -16,7 +16,8 @@ composer require landrain/yii2-apidoc:master-dev
     ],
 ],
 ```
-2、本项目是以module接口开发为基础，请确定项目下有modules模块
+2、本项目是以module模块的接口开发为基础，请确定项目下有modules模块
+3、本项目暂时仅用于yii2-basic项目，暂不适用于yii2高级版
 
 ## 项目配置：
 将下方配置引入入口文件web/index-dev.php或web/index-test.php( 正式环境不要引入）：
@@ -84,6 +85,9 @@ PHP Class Doc Comment
  */
 ```
 
+## 检查phpstorm配置
+在SiteController或任意controller文件上，输入/** 后输入enter键，将会输出注释
+
 ## 使用jid编写程序注释
 1、检索项目第一级目录下的Modules模块下所有Module.php文件，注释参数如下：
 
@@ -103,3 +107,13 @@ PHP Class Doc Comment
     | return        | 返回参数，将会显示在页面右方      |       |
     | throws        | 异常声明，将会显示在页面右方      |       |
     | detail        | 接口说明，将会显示在页面右方      |       |
+
+
+## 示例：
+先配置好phpstome注释配置。
+1、配置modules模块注释
+2、配置controller类的注释
+3、配置action的注释
+
+测试项目源码地址 [源码](https://github.com/FlyLand/yii2-apidoc-basic-test)
+测试项目访问地址 [访问地址](http://api.storecardhome.cn)
