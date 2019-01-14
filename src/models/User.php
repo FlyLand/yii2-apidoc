@@ -1,8 +1,8 @@
 <?php
 
-namespace landrain\src\models;
+namespace landrain\models;
 
-use landrain\src\Module;
+use landrain\Module;
 
 class User extends \yii\base\Object implements \yii\web\IdentityInterface
 {

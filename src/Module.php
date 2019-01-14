@@ -1,6 +1,6 @@
 <?php
 namespace land\src;
-use landrain\src\models\User;
+use landrain\models\User;
 
 class Module extends \yii\base\Module
 {
@@ -71,7 +71,7 @@ class Module extends \yii\base\Module
 			),
 			'user'=>array(
                 'class'=>'yii\web\User',
-				'identityClass'=>'landrain\src\models\User',
+				'identityClass'=>'landrain\models\User',
 				'loginUrl'=>\Yii::$app->urlManager->createUrl($this->id.'/default/login'),
 			),
 		), false);

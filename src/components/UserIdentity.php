@@ -1,5 +1,5 @@
 <?php
-namespace landrain\src\components;
+namespace landrain\components;
 
 use Yii;
 

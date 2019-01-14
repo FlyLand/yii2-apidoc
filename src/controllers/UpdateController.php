@@ -6,7 +6,7 @@
  * Time: 10:16
  */
 
-namespace landrain\src\controllers;
+namespace landrain\controllers;
 
 use yii\web\Controller;
 use Yii;

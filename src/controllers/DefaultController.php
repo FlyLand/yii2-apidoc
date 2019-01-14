@@ -1,8 +1,8 @@
 <?php
 
-namespace landrain\src\controllers;
+namespace landrain\controllers;
 
-use landrain\src\models\LoginForm;
+use landrain\models\LoginForm;
 use \yii;
 
 header('Content-type:text/html;charset=utf-8');
