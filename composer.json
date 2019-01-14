@@ -1,6 +1,6 @@
 {
     "name": "landrain/yii2-apidoc",
-    "description": "yii2 pai doc by php exlanatory note",
+    "description": "yii2 api doc by php exlanatory note",
     "type": "project",
     "require": {
         "yiisoft/yii2": "2.0.13"
