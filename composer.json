@@ -1,18 +1,19 @@
 {
   "name": "landrain/yii2-apidoc",
   "description": "yii2 api doc by php exlanatory note",
-  "type": "project",
-  "keywords": [
-    "yii2",
-    "api",
-    "php exlanatory"
-  ],
   "authors": [
     {
       "name": "landrain",
       "email": "zk_land@163.com"
     }
   ],
+  "keywords": [
+    "yii2",
+    "api",
+    "php exlanatory"
+  ],
+  "minimum-stability": "dev",
+  "require": {},
   "autoload": {
     "psr-4": {
       "landrain\\": "src/"
