@@ -1,6 +1,7 @@
 {
   "name": "landrain/yii2-apidoc",
   "description": "yii2 api doc by php exlanatory note",
+  "type": "yii2-extension",
   "authors": [
     {
       "name": "landrain",
@@ -20,5 +21,11 @@
     "psr-4": {
       "landrain\\": "src/"
     }
-  }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
 }
