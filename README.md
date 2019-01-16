@@ -27,6 +27,7 @@ $config['modules']['jid'] = [
     'name'=>'接口调试系统',
     'password'=>'123456',
     'ipFilters'=>['*','::1'],
+    'language' => 'zh',
     'loginConfig'=>[
         'loginUrl' => '/sail/seller/login',
         'fieldMapping'=>[
