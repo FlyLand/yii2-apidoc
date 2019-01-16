@@ -1,5 +1,6 @@
 <?php
 
+use landrain\models\Language;
 use \yii\helpers\Html;
 
 $this->title = $this->context->module->name;
@@ -11,7 +12,7 @@ $this->title = $this->context->module->name;
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
                             class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="myModalLabel">商户登录</h4>
+                <h4 class="modal-title" id="myModalLabel"><?= $this->title; ?></h4>
             </div>
             <div class="modal-body">
                 <form action="<?= $this->context->module->loginConfig['loginUrl'] ?>" method="post" role="form"
@@ -36,8 +37,8 @@ $this->title = $this->context->module->name;
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary" id="loginBtn">登陆</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><?= Language::t('loginCancelButton');?></button>
+                <button type="button" class="btn btn-primary" id="loginBtn"><?= Language::t('loginButton');?></button>
             </div>
         </div>
     </div>
@@ -49,7 +50,7 @@ $this->title = $this->context->module->name;
             <div class="navbar-header">
                 <button data-target="#example-navbar-collapse" data-toggle="collapse" class="navbar-toggle"
                         type="button">
-                    <span class="sr-only">切换导航</span>
+                    <span class="sr-only"><?= Language::t('navbar');?></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -70,7 +71,7 @@ $this->title = $this->context->module->name;
                     <!--                <li><a href="/wiki/" title="wiki" target="_blank"><b class="text-danger">WIKI</b></a></li>-->
                     <li id="loginBtn" <?= !empty($loginInfo) ? 'style="display:none"' : ''; ?>><a href="#"
                                                                                                   data-toggle="modal"
-                                                                                                  data-target="#loginModal">用户登录</a>
+                                                                                                  data-target="#loginModal"><?= Language::t('loginModal');?></a>
                     </li>
                     <li id="accountBtn" <?= empty($loginInfo) ? 'style="display:none"' : ''; ?> class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"
@@ -82,7 +83,7 @@ $this->title = $this->context->module->name;
                             <li><a id="loginInfo-sid"><?= !empty($loginInfo['sid']) ? $loginInfo['sid'] : 'SID' ?></a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="<?php echo $this->context->module->logoutUrl; ?>" id="logoutBtn">退出登录</a></li>
+                            <li><a href="<?php echo $this->context->module->logoutUrl; ?>" id="logoutBtn"><?= Language::t('logoutBtn');?></a></li>
                         </ul>
                     </li>
 
@@ -142,11 +143,11 @@ $this->title = $this->context->module->name;
         <div id="ouputPannel" class="col-md-5">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">接口调试</h3>
+                    <h3 class="panel-title"><?= Language::t('panelTitle')?></h3>
                 </div>
                 <div class="panel-body">
                     <?php if (empty($controller) || empty($action)): ?>
-                        未选择接口或获取参数失败
+                        <h3 class="panel-title"><?= Language::t('interfaceError');?></h3>
                     <?php else: ?>
                         <form id="invokeForm" class="form-horizontal" role="form"
                               method="<?= trim(str_replace('<br />', '', $method)) ?>" action="
@@ -175,7 +176,7 @@ $this->title = $this->context->module->name;
                                                 echo '<input type="file" onclick="" name="' . $p['name'] . '[]" placeholder="" value="">';
                                                 echo '<input type="file" onclick="" name="' . $p['name'] . '[]" placeholder="" value="">';
                                             } else {
-                                                $defaultValue = rtrim(ltrim($p['detail'], "("), ")");
+                                                $defaultValue = rtrim(ltrim($p['default'], "("), ")");
                                                 echo Html::textInput($p['name'], $defaultValue,
                                                     ['class' => 'form-control', 'id' => "param-{$i}-{$p['name']}", 'placeholder' => $p['type'] . ' ' . $p['name']]);
                                             }
@@ -187,8 +188,8 @@ $this->title = $this->context->module->name;
 
                             <div class="form-group">
                                 <div class="col-sm-offset-4 col-sm-10">
-                                    <button type="button" class="btn btn-danger" id="invokeBtn">调用接口</button>
-                                    <button type="button" class="btn btn-danger" id="invokeXhprofBtn">调用耗时</button>
+                                    <button type="button" class="btn btn-danger" id="invokeBtn"><?= Language::t('invokeButton');?></button>
+                                    <button type="button" class="btn btn-danger" id="invokeXhprofBtn"><?= Language::t('invokeXhprofBtn');?></button>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -204,7 +205,7 @@ $this->title = $this->context->module->name;
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <ul class="nav nav-pills">
-                        <li class="active"><a href="#result" data-toggle="tab">输出结果</a></li>
+                        <li class="active"><a href="#result" data-toggle="tab"><?= Language::t('resultMessage');?> </a></li>
                         <li style="float:right;">
                             <a id="outputExpand" href="javascript:;" style="color:gray">展开&gt;&gt;</a>
                             <a id="outputCollapse" href="javascript:;" style="color:gray;display: none">&lt;&lt;缩回</a>
@@ -213,8 +214,8 @@ $this->title = $this->context->module->name;
                 </div>
                 <div class="panel-body">
                     <div class="tab-content">
-                        <div class="tab-pane active" id="result">未调用或调用失败</div>
-                        <div class="tab-pane" id="thrift">未调用或调用失败</div>
+                        <div class="tab-pane active" id="result"><?= Language::t('noResultMessage');?></div>
+                        <div class="tab-pane" id="thrift"><?= Language::t('noResultMessage');?></div>
                     </div>
                 </div>
             </div>
@@ -223,62 +224,61 @@ $this->title = $this->context->module->name;
         <div id="descPannel" class="col-md-5">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">接口说明</h3>
+                    <h3 class="panel-title"><?= Language::t('interfaceExplain');?></h3>
                 </div>
                 <div class="panel-body">
-                    <p><span style="display: inline-block;padding-right: 5px;font-weight: bold;">调用地址:</span>
+                    <p><span style="display: inline-block;padding-right: 5px;font-weight: bold;"><?= Language::t('interfaceUri');?>:</span>
                         <?php
-                        //去掉前面域名
                         if (!empty($url)) {
                             echo substr($url, strpos($url, '/', 7) + 1);
                         }
                         ?></p>
                     <p>
-                        <span style="display: inline-block;padding-right: 5px;font-weight: bold;">HTTP方法:</span><?php echo $method ?>
+                        <span style="display: inline-block;padding-right: 5px;font-weight: bold;"><?= Language::t('interfaceExplainMethod');?>:</span><?php echo $method ?>
                     </p>
                     <p>
-                        <span style="display: inline-block;padding-right: 5px;font-weight: bold;">接口功能:</span><?php echo $brief ?>
+                        <span style="display: inline-block;padding-right: 5px;font-weight: bold;"><?= Language::t('interfaceExplainFunc');?>:</span><?php echo $brief ?>
                     </p>
                     <p>
-                        <span style="display: inline-block;padding-right: 5px;font-weight: bold;">功能详述:</span><?php echo str_replace('<br&nbsp;/>', '<br />', str_replace(' ', '&nbsp;', $function)); ?>
+                        <span style="display: inline-block;padding-right: 5px;font-weight: bold;"><?= Language::t('interfaceExplainDetail');?>:</span><?php echo str_replace('<br&nbsp;/>', '<br />', str_replace(' ', '&nbsp;', $function)); ?>
                     </p>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">调用参数说明</h3>
+                    <h3 class="panel-title"><?= Language::t('interfaceExplainParams');?></h3>
                 </div>
                 <div class="panel-body">
                     <?php if (!empty($params)): ?>
                         <?php foreach ($params as $i => $p): ?>
-                            <?= $p['name'] . ' ' . $p['default'] . ' ' . $p['brief'] . ' ' . $p['detail'] . '<br />' ?>
+                            <?= '$' .$p['name'] . ' ' . $p['brief'] . ' :' . $p['detail']  . '<br />' ?>
                         <?php endforeach ?>
                     <?php else: ?>
-                        未选择接口或获取参数失败
+                        <?= Language::t('interfaceError'); ?>
                     <?php endif ?>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">返回值说明</h3>
+                    <h3 class="panel-title"><?= Language::t('interfaceExplainResult');?></h3>
                 </div>
                 <div class="panel-body">
                     <?php if (!empty($return)) {
                         echo str_replace('<br&nbsp;/>', '<br />', str_replace(' ', '&nbsp;', $return));
                     } else {
-                        echo '未填写';
+                        echo 'undefined';
                     } ?>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title" style="font-weight: bold;color:red">异常说明</h3>
+                    <h3 class="panel-title" style="font-weight: bold;color:red"><?= Language::t('interfaceExplainException');?></h3>
                 </div>
                 <div class="panel-body">
                     <?php if (!empty($exception)) {
                         echo str_replace('<br&nbsp;/>', '<br />', str_replace(' ', '&nbsp;', $exception));
                     } else {
-                        echo '未填写';
+                        echo 'undefined';
                     } ?>
                 </div>
             </div>
@@ -302,10 +302,9 @@ $this->title = $this->context->module->name;
                 },
                 success: function (resp) {
                     layer.close(loadIndex);
-                    //api调用url链接
                     $QueryUrl = $(this)[0]['url'];
                     $("#apiUrl").attr("href", $QueryUrl + '&xhprof=1');
-                    $("#apiUrl").html("函数调用分析");
+                    $("#apiUrl").html("xhprof invoke");
 
                     new JsonFormater({
                         dom: '#result',
@@ -336,7 +335,6 @@ $this->title = $this->context->module->name;
                 },
                 success: function (resp) {
                     layer.close(loadIndex);
-                    //api调用url链接
                     $QueryUrl = $(this)[0]['url'];
                     $("#apiUrl").attr("href", $QueryUrl);
                     $("#apiUrl").html($QueryUrl);
@@ -405,7 +403,6 @@ $this->title = $this->context->module->name;
 </script>
 
 <script>
-    //将调用参数存入localStorage浏览器缓存中
     function reStoreInputVal(paramsObj, apiUrl) {
         if (window.localStorage) {
             for (var key in paramsObj) {
@@ -421,14 +418,11 @@ $this->title = $this->context->module->name;
         }
     }
 
-    //从缓存中将参数填充到输入框中
     function rePutDataToInputFromlocalStorageData() {
         var inputObj = $('#invokeForm').find('input');
-
         if (!inputObj) {
             return false;
         }
-
         var formActionUrl = $("#invokeForm").attr("action");
 
         for (var i = 0; i < inputObj.length; i++) {

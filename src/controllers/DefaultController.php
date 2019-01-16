@@ -2,6 +2,7 @@
 
 namespace landrain\controllers;
 
+use landrain\models\Language;
 use landrain\models\LoginForm;
 use \yii;
 
@@ -63,7 +64,7 @@ class DefaultController extends \yii\web\Controller
     {
         $modules = $this->getReflectionModules($parent);
 
-        if(empty($modules)){
+        if (empty($modules)) {
             throw new \yii\base\Exception(sprintf('未检测到模块'));
         }
 
@@ -182,7 +183,8 @@ class DefaultController extends \yii\web\Controller
         $modules = [];
 
         $dir = \Yii::getAlias('@app/modules' . ($parent == '' ? '' : '/' . $parent . '/modules'));
-        if(!is_dir($dir)) return false;
+
+        if (!is_dir($dir)) return false;
         $dirs = scandir($dir);
 
         foreach ($dirs as $d) {
@@ -197,7 +199,7 @@ class DefaultController extends \yii\web\Controller
             $properties = $this->extractProperty($rc->getDocComment(), 'jid-');
 
             foreach (['id', 'name'] as $i) {
-                if (empty($properties[$i])) throw new \yii\base\Exception(sprintf('模块[%s]缺少注解属性@jid-%s', $d, $i));
+                if (empty($properties[$i])) throw new \yii\base\Exception(sprintf(Language::t('propertyException'), $d, $i));
             }
 
             $modules[$d] = $properties;
@@ -246,20 +248,27 @@ class DefaultController extends \yii\web\Controller
             'type'    => 'unknown',
             'name'    => 'unknown',
             'default' => null,
-            'brief'   => '未填写',
+            'brief'   => 'unknown',
             'detail'  => ''
         ];
 
         $part = explode(' ', trim($paramInfo));
+
         if (!empty($part[0])) $param['type'] = $part[0];
         if (!empty($part[1])) $param['name'] = $part[1];
-        if (!empty($part[2])) $param['brief'] = $part[2];
-        if (!empty($part[3])) $param['detail'] = nl2br(implode(' ', array_slice($part, 3)));
+
+        if ('unknown' != $param['name'] && !empty($param['name'])) {
+            $breif = substr($paramInfo, strpos($paramInfo, $param['name']) + strlen($param['name']));
+            $t1 = strpos($breif,'(=');
+            $t2 = strpos($breif,'=)');
+            if ($t1 && $t2) {
+                $param['detail'] = substr($breif, 0,$t1);
+                $formParams = substr($breif,$t1 + 2,$t2-$t1-2);
+                list($param['brief'],$param['default']) = explode(':',$formParams);
+            }
+        }
 
         $param['name'] = str_replace('$', '', $param['name']);
-        if (strpos($param['name'], '=')) {
-            list($param['name'], $param['default']) = explode('=', $paramInfo);
-        }
 
         return $param;
     }

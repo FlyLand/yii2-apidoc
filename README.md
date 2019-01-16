@@ -56,7 +56,7 @@ PHP Function Doc Comment
 /**
 #if (${NAME.indexOf('action')} != '-1' && ${NAME}!='actions')
 @brief 接口名称
-@param type $name name defaultValue
+@param type $name this is your test name (=name:defaultValue=)
 @method POST/GET
 @detail 接口描述
 @return array
