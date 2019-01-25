@@ -108,7 +108,7 @@ PHP Class Doc Comment
 
 ## 检查phpstorm配置
 在SiteController或任意controller文件上，输入/** 后输入enter键，将会输出注释
-![img](https://jsinchina.oss-cn-qingdao.aliyuncs.com/flash/index.gif)
+[演示图片](https://jsinchina.oss-cn-qingdao.aliyuncs.com/flash/index.gif)
 
 ## 使用jid编写程序注释
 1、检索项目第一级目录下的Modules模块下所有Module.php文件，注释参数如下：
