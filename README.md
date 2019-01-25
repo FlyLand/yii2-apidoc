@@ -1,5 +1,7 @@
 ## 项目描述
-    jid是一个类似gii-module的一个拓展模块，主要为了接口端调试和API文档编写
+    1、规范API接口的注释。注释即文档，注释结构不对无法渲染出页面，更无法与对接方交流
+    2、节省前后端文档定义和书写。文档按照基本格式输出，该有的元素都存在，极大的减少前后端交流成本。
+    3、文档注释方便。配合phpstrom的自定制注释输出，不需要花费额外时间背文档特殊定义词汇。
 ## 安装
 composer require landrain/yii2-apidoc:master-dev
 
@@ -48,6 +50,22 @@ if(isset($_REQUEST['xhprof']) && $_REQUEST['xhprof'] == 1){
 }
 ```
 
+### ['modules']['jid']配置说明：
+
+  注释参数  | 作用 | 备注
+  ------------- | ------------- |  -------------
+  class  | 模块入口 |
+  name  | 模块名称，将会显示在页面 |
+  password | 登录模块的密码 |
+  ipFilters | IP登录限制 |
+  language | 语言选择 | 简单支持en/zh
+  loginUrl | 登录地址 | 项目中的登录地址
+  fieldMapping | 登录参数名和显示名称 |
+  subOfClasses | 需要继承的指定class,若为空则将所有controller囊括，否则必须继承这些类才会显示在页面上
+  dropdownList | 显示在右上角的图片，一般用作下载二维码 | 格式为：显示名称:图片地址
+  xhprofUrl | xhprof的配置地址 |
+
+
 ## Phpstrom 注释配置：
 打开phpstrom->setting->Editor->File and Code Templates->Includes，将两个文件内容替换原本的文件内容,点击apply即可
 
@@ -88,26 +106,29 @@ PHP Class Doc Comment
 
 ## 检查phpstorm配置
 在SiteController或任意controller文件上，输入/** 后输入enter键，将会输出注释
+![img](https://jsinchina.oss-cn-qingdao.aliyuncs.com/flash/index.gif)
 
 ## 使用jid编写程序注释
 1、检索项目第一级目录下的Modules模块下所有Module.php文件，注释参数如下：
 
-    | 注释参数        | 作用    |  备注  |
-    | --------   | -----:   | :----: |
-    | jid-enable        | 标明此module将被收录到文档中      |       |
-    | jid-id        | id值      |       |
-    | jid-name        | 模块名称，将显示在页面上方      |       |
+  注释参数  | 作用 | 备注
+  ------------- | ------------- |  -------------
+ jid-enable  | 标明此module将被收录到文档中 |
+ jid-id  | id值 |
+ jid-name | 模块名称，将显示在页面上方 |
+
 
 2、检索modules具体模块下controllers文件夹下所有controller文件，并遍历所有controller文件中所有action开头的所有方法，方法注释规范如下：
 
-    | 注释参数        | 作用    |  备注  |
-    | --------   | -----:   | :----: |
-    | brief      | 标明方法名称，将会显示在页面左方      |       |
-    | param        | 需要传入的参数，将会动态添加到页面from表单中      | string(类型) $name(参数) 姓名(注释) 张三(默认值)      |
-    | method        | 调用方法，POST/GET      |       |
-    | return        | 返回参数，将会显示在页面右方      |       |
-    | throws        | 异常声明，将会显示在页面右方      |       |
-    | detail        | 接口说明，将会显示在页面右方      |       |
+  注释参数  | 作用 | 备注
+  ------------- | ------------- |  -------------
+ brief         | 标明方法名称，将会显示在页面左方      |
+ param        | 需要传入的参数，将会动态添加到页面from表单中      | string(类型) $name(参数) 姓名(注释) 张三(默认值)
+ method        | 调用方法，POST/GET      |
+ return        | 返回参数，将会显示在页面右方      |
+ throws        | 异常声明，将会显示在页面右方      |
+ detail        | 接口说明，将会显示在页面右方      |
+
 
 
 ## 示例：
