@@ -14,6 +14,9 @@
     "php exlanatory"
   ],
   "minimum-stability": "dev",
+  "require": {
+    "yiisoft/yii2": "~2.0.13"
+  },
   "autoload": {
     "psr-4": {
       "landrain\\": "src/"
