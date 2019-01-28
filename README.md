@@ -5,7 +5,7 @@
 
     3、文档注释方便。配合phpstrom的自定制注释输出，不需要花费额外时间背文档特殊定义词汇。
 ## 安装
-composer require landrain/yii2-apidoc:master-dev
+composer require landrain/yii2-apidoc
 
 ## 访问
 直接访问项目地址根目录即可。登录默认密码：123456
