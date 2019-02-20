@@ -1,9 +1,9 @@
 <?php
 
-namespace landrain;
+namespace landrain\apidoc;
 
-use landrain\models\Language;
-use landrain\models\User;
+use landrain\apidoc\models\Language;
+use landrain\apidoc\models\User;
 
 class Module extends \yii\base\Module
 {
@@ -76,7 +76,7 @@ class Module extends \yii\base\Module
             ),
             'user'         => array(
                 'class'         => 'yii\web\User',
-                'identityClass' => 'landrain\models\User',
+                'identityClass' => 'landrain\apidoc\models\User',
                 'loginUrl'      => \Yii::$app->urlManager->createUrl($this->id . '/default/login'),
             ),
         ), false);

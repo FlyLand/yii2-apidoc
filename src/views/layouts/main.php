@@ -1,6 +1,6 @@
 <?php
 
-use landrain\assets\JidAsset;
+use landrain\apidoc\assets\JidAsset;
 use \yii\helpers\Html;
 
 $this->beginPage(); ?>

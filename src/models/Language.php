@@ -6,7 +6,7 @@
  * Time: 11:45
  */
 
-namespace landrain\models;
+namespace landrain\apidoc\models;
 
 
 class Language

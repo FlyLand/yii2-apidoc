@@ -1,5 +1,5 @@
 <?php
-namespace landrain\models;
+namespace landrain\apidoc\models;
 use Yii;
 /**
  * LoginForm is the model behind the login form.

@@ -1,6 +1,6 @@
 <?php
 
-use landrain\models\Language;
+use landrain\apidoc\models\Language;
 use \yii\helpers\Html;
 
 $this->title = $this->context->module->name;

@@ -1,9 +1,9 @@
 <?php
 
-namespace landrain\controllers;
+namespace landrain\apidoc\controllers;
 
-use landrain\models\Language;
-use landrain\models\LoginForm;
+use landrain\apidoc\models\Language;
+use landrain\apidoc\models\LoginForm;
 use \yii;
 
 header('Content-type:text/html;charset=utf-8');
