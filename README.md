@@ -27,7 +27,7 @@ composer require landrain/yii2-apidoc
 将下方配置引入入口文件web/index-dev.php或web/index-test.php( 正式环境不要引入）：
 ``` php
 $config['modules']['jid'] = [
-    'class'=>'landrain\Module',
+    'class'=>'landrain\Module', //v1.0.2版本后namespace改为 landrain\apidoc\Module
     'name'=>'接口调试系统',
     'password'=>'123456',
     'ipFilters'=>['*','::1'],
